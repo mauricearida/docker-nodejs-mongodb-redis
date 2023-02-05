@@ -84,19 +84,21 @@ app.listen(port, () => console.log(`listening on port ${port}`));
 //docker run -v $(pwd):/app:ro -v /app/node_modules -p 3000:4000 -d --name node-app-container node-app-image
 // $(pwd) <= this is only for ubuntu, for windows i think it ss "%cd%"
 
-//HOWEVER, after the use of Docker-compose file, we are not using the commands above anymore
+//======================================
+//======================================
+//HOWEVER, after using Docker-compose file, we are not using the commands above anymore
 
-//docker build -t node-app-image .  (the "." here is for the location of the "Dockerfile")
+//docker build -t node-app-image .  (the "." here is for the location of the "Dockerfile") (-t = title)
 //to check what is inside a file you cat the file "cat index.js"
 
-//docker rm node-app-image -f
+//docker rm node-app-image -f (-f = force)
 
 //===================================
 //===================================
 // TO RUN THE WHOLE THING FROM SCRATCH :
 //===================================
 
-// 1 - "docker build -t node-app-image ." the "." specifies the location of the Dockerfile
+// 1 - "docker build -t node-app-image ."
 
 //To clean up everything:
 // "docker compose down -v"
@@ -121,7 +123,7 @@ app.listen(port, () => console.log(`listening on port ${port}`));
 //AFTER ADDING MONGO CONTAINER :
 //===================================
 
-// to get the ip address of a contianer, do "docker inspect ${containre-name}"
+// to get the ip address of a container, do "docker inspect ${container-name}"
 // you'll find it in "Networks" => IP address
 
 // 1 - "docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build"
@@ -130,9 +132,9 @@ app.listen(port, () => console.log(`listening on port ${port}`));
 // 4 - "show dbs"
 // 5 - db.books.insertOne({"name":"Harry Potter Book"})
 // 6 - db.books.find()
-// 7 - then here when doing the compose down you should not add the  "-v" sp the data remains
+// 7 - then here when doing the compose down you should not add the  "-v" so the data remains
 
-// after setting the ip address of the mongo container  and saving, it conencts automatically
+// after setting the ip address of the mongo container and saving, it connects automatically
 // to be sure of that you can do "docker inspect ${main-container-name}"
 // the word "mongo" in the url in index.js represents the IP adress of the mongo container at anytime
 // to check the logs of a container: "docker logs ${container-name} -f"
