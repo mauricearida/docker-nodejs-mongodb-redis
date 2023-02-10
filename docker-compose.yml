@@ -15,9 +15,14 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=maurice
       - MONGO_INITDB_ROOT_PASSWORD=mypassword
     volumes:
+      # the line below is to save the mongo volume under the
+      # "mongo-db" name (we got "/data/db" from the docs)
       - mongo-db:/data/db
   redis:
     image: redis
 
 volumes:
+  # the volumes listing here is because it has to be used
+  # from other places.. and it has the same name as given
+  # 6 lines above
   mongo-db:

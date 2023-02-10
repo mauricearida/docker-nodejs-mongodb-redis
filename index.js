@@ -95,29 +95,35 @@ app.listen(port, () => console.log(`listening on port ${port}`));
 
 //===================================
 //===================================
+//=============================================================
+//=============================================================
+//=========================FINAL BELOW=====================
+//=========================FINAL BELOW=====================
+//=========================FINAL BELOW=====================
+//=========================FINAL BELOW=====================
+//=============================================================
+//=============================================================
+//===================================
+//===================================
+//===================================
 // TO RUN THE WHOLE THING FROM SCRATCH :
 //===================================
 
 // 1 - "docker build -t node-app-image ."
 
-//To clean up everything:
+//To clean up everything(3al ekher):
 // "docker compose down -v"
 
 //===================================
 //===================================
 //AFTER ADDING DIFFERENT ENVIRONMENTS :
 //===================================
-// TO RUN THE WHOLE THING FROM SCRATCH (after done compose environment):
+// TO RUN THE WHOLE THING FROM SCRATCH (after done compose files and their environment):
 //"docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build"
-//the order of the compose config files override each other
-//(like javascript yali ba3den 3a yali abel)
+//the order of the compose config files in the command above override each other
 
-//To build a container:
-// "docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build"
-//  OR    //
-// "docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build"
 //To erase everything : "docker compose -f docker-compose.yml -f docker-compose.dev.yml down -v"
-// "-v" erases the volumes (example db that u kept after deleting a container)
+// "-v" erases the volumes
 //===================================
 //===================================
 //AFTER ADDING MONGO CONTAINER :
@@ -136,7 +142,7 @@ app.listen(port, () => console.log(`listening on port ${port}`));
 
 // after setting the ip address of the mongo container and saving, it connects automatically
 // to be sure of that you can do "docker inspect ${main-container-name}"
-// the word "mongo" in the url in index.js represents the IP adress of the mongo container at anytime
+// the word "mongo" in the url in index.js represents the IP address of the mongo container at anytime
 // to check the logs of a container: "docker logs ${container-name} -f"
 
 //====================================

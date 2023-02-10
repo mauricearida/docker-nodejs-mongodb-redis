@@ -3,10 +3,15 @@ services:
   node-app:
     build:
       context: .
+      # the context above is to point at the directory
+      # where the docker file so the build happens
       args:
         NODE_ENV: development
     volumes:
       - ./:/app
+      # the stuff written in volumes are so every files added in the project
+      # syncs the image ella l node_modules
+      # this part should not be present in the prod compose file
       - /app/node_modules
     environment:
       - NODE_ENV=development
